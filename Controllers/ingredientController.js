@@ -25,12 +25,12 @@ exports.addIngredient = (req, res, next) => {
 exports.editIngredient = (req, res, next) => {
     Ingredient.findById(req.body._id)
         .then(ingredient => {
-                ingredient.calories = req.body.calories;
-                ingredient.servingSize = req.body.servingSize;
-                ingredient.measurement = req.body.measurement;
-                ingredient.protein = req.body.protein;
-                ingredient.fat = req.body.fat;
-                ingredient.carbohydrate = req.body.carbohydrate;
+                ingredient.calories = req.body.calories ? req.body.calories : ingredient.calories;
+                ingredient.servingSize = req.body.servingSize ? req.body.servingSize : ingredient.servingSize;
+                ingredient.measurement = req.body.measurement ? req.body.measurement: ingredient.measurement;
+                ingredient.protein = req.body.protein ? req.body.protein : ingredient.protein;
+                ingredient.fat = req.body.fat ? req.body.fat : ingredient.fat;
+                ingredient.carbohydrate = req.body.carbohydrate ? req.body.carbohydrate : ingredient.carbohydrate;
                 return ingredient.save();
         })
         .then(updatedIngredient => {
