@@ -11,7 +11,7 @@ const ingredientSchema = new Schema({
         required: true
     },
     servingSize: {
-        type: String,
+        type: Number,
         required: true,
     },
     measurement: {
