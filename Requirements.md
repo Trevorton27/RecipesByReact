@@ -1,12 +1,20 @@
-## Recipes by React Requirements
+# **Recipes by React Requirements**
 
 -  Create, save, and edit recipes with a list of ingredients.
+
+-  Search Recipes by Ingredient
+
 -  Create, save, and edit ingredients that can be added to recipes.
+
+-  Search and display all ingredients for a recipe.
+
 -  Allow user login and authentication. Store user information in a session.
 
-## Considerations
+#
 
-1. Front-End
+## **Blueprint**
+
+1. **Front-End**
    1. Views
       1. Login
       1. Add Recipe
@@ -37,15 +45,65 @@
       -  Delete User
    1. CSS Library
       -  Bootstrap
-1. Back-End
+1. **Back-End**
+
    1. Routes
+      1. Ingredients
+         -  CreateIngredient
+         -  EditIngredient
+         -  DeleteIngredient
+         -  GetAllIngredients
+         -  GetIngredient
+         -  GetIngredientsByRecipe
+      1. Recipes
+         -  CreateRecipe
+         -  EditRecipe
+         -  DeleteRecipe
+         -  GetAllRecipes
+         -  GetRecipe
+         -  GetRecipesByIngredient
+      1. Users
    1. Controllers
+      -  UsersController
+      -  RecipesController
+      -  IngredientsController
    1. Database Communication
       -  Mongoose
    1. Models
-      -  Properties
-      -  Methods
-1. Database
+      1. Ingredient
+         1. Properties
+            -  Name
+            -  Calories
+            -  Serving Size
+            -  Protein
+            -  Carbs
+            -  Fat
+            -  Recipes
+         1. Methods
+            -  AddToRecipe
+            -  DeleteFromRecipe
+      1. Recipe
+         1. Properties
+            -  Name
+            -  Description
+            -  Directions
+            -  CreatedBy
+            -  CreatedOn
+            -  Users
+            -  Ingredients
+         1. Methods
+            -  DeleteFromUser
+            -  AddToUser
+      1. User
+         1. Properties
+            -  Username
+            -  Password
+            -  Email
+            -  Recipes
+         1. Methods
+
+1. **Database**
+
    1. Relational or Non-relational?
       -  MongoDB
    1. Tables
@@ -58,6 +116,7 @@
          -  Ingredients
          -  CreatedBy
          -  CreatedOn
+         -  Users
       -  Ingredient
          -  Serving Size
          -  Calories
@@ -72,9 +131,19 @@
          -  Password
          -  Recipes
 
-## Technologies
+#
 
-1. Front-End
-   1. React w/Hooks & Context API
-   1. Axios
-   1. Bootstrap
+## **Technologies**
+
+1. **Front-End**
+   -  React w/Hooks & Context API
+   -  Axios
+   -  Bootstrap
+   -  CRA-Build-Watch
+1. **Back-End**
+   -  Nodemon
+   -  Express
+   -  Mongoose
+   -  Body-Parser
+1. **Database**
+   -  MongoDB
