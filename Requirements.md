@@ -75,6 +75,7 @@
             -  Name
             -  Calories
             -  Serving Size
+            -  Measurement
             -  Protein
             -  Carbs
             -  Fat
@@ -90,7 +91,7 @@
             -  CreatedBy
             -  CreatedOn
             -  Users
-            -  Ingredients
+            -  Ingredients - Servings Per
          1. Methods
             -  DeleteFromUser
             -  AddToUser
