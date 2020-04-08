@@ -1,0 +1,174 @@
+// mongodb+srv://sdmm_user:iRqUGgKyAmi6Yg61@cluster0-wlioe.mongodb.net/RecipesByReact?retryWrites=true&w=majority
+
+/* Part 1 - Setting Up the Project
+
+ - Requirements.md file and what it contains.
+ - HelpfulLinks.md file and what it contains.
+
+ - Install npx create-react-app client
+ - npm init set up project
+ - create an app.js file
+ - set up express and app.js to serve react file.
+
+   const express = require('express');
+   const path = require('path');
+
+   const app = express();
+
+   app.use('/', express.static(path.join(__dirname, 'client/build')));
+
+   app.use((req, res) => {
+      res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+   });
+
+   app.listen(3000);
+
+ - create structure of our project.
+ --- model folder
+ --- controller folder
+ --- routes folder
+
+ - Setting up the environment
+ --- Install nodemon
+ --- install concurrently
+ --- install mongoose
+ --- install bodyparser
+ --- navigate to client install cra-build-watch
+ --- setting up watch script in CRA, setting up dev script in node.
+
+ ------ "watch": "cra-build-watch"
+ ------ "client": "npm run watch --prefix client"
+ ------ "dev": "concurrently \"nodemon app.js\" \"npm run client\""
+
+Part - 2: Building the models & routes
+
+-- What is middleware?
+      app.use((req, res, next) => {
+         console.log('You are in the middleware');
+         next();
+      });
+
+      app.use((req, res, next) => {
+         console.log('Still in the Middleware');
+         next();
+      });
+
+-- App.js Changes
+
+      const bodyParser = require('body-parser');
+
+      const recipeRoutes = require('./routes/recipeRoutes');
+
+      app.use(bodyParser.json());
+
+      app.use('/api', recipeRoutes);
+
+-- Building the routes
+   const express = require('express');
+
+   const router = express.Router();
+
+   router.post('/add-recipe', (req, res) => {
+      res.status(201).json({
+         message: 'Your post method was successful',
+         data: req.body.data,
+      });
+   });
+
+   router.get('/get-recipe', (req, res) => {
+      res.status(200).json({
+         message: 'Your get method was successful',
+         data: req.body.data,
+      });
+   });
+
+   router.put('/edit-recipe', (req, res) => {
+      res.status(200).json({
+         message: 'Your put method was successful',
+         data: req.body.data,
+      });
+   });
+
+   router.delete('/delete-recipe', (req, res) => {
+      res.status(200).json({
+         message: 'Your delete request was successful',
+         data: `You deleted ${req.body.data}`,
+      });
+   });
+
+   module.exports = router;
+
+-- Postman and testing our API
+
+Part - 3
+
+-- Getting set up with MongoDB
+
+      Create a new collection in MongoDB
+
+-- MongoDB Atlas
+
+      Connect to the database in Mongo Atlas. Brief overview of Atlas
+
+-- What is Mongoose?
+
+      ODM(object document mapper) - same thing as an ORM(object relational mapper)
+
+      Mongoose provides a straight-forward, schema-based solution to model your application data. It includes built-in type casting, validation, query building, business logic hooks and more, out of the box.
+
+-- Creating the Model for Mongoose
+
+      const mongoose = require('mongoose');
+      const Schema = mongoose.Schema;
+
+      const recipeSchema = new Schema({
+         title: {
+            type: String,
+            required: true,
+         },
+         description: {
+            type: String,
+            required: true,
+         },
+         ingredients: [
+            {
+               name: {
+                  type: String,
+                  required: true,
+               },
+               amount: {
+                  type: Number,
+                  required: true,
+               },
+               measurement: {
+                  type: String,
+                  required: true,
+               },
+            },
+         ],
+         servings: {
+            type: Number,
+            required: true,
+         },
+         directions: [
+            {
+               step: String,
+            },
+         ],
+      });
+
+      module.exports = mongoose.model('Recipe', recipeSchema); 
+
+-- Connecting Node to Mongoose/MongoDB
+
+      mongoose.connect(
+         MONGODB_URI,
+         {
+            useUnifiedTopology: true, - MongoDB driver change this allows server discover and monitoring
+            useNewUrlParser: true, - MongoDB driver is behind flag, turn this on
+         })
+         .then(result => {
+            app.listen(3000)
+         })
+         .catch(err => console.log(err));
+*/

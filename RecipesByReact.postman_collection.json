@@ -1,0 +1,163 @@
+{
+	"info": {
+		"_postman_id": "cde2eeab-4383-47e1-a840-0f511f12a091",
+		"name": "RecipesByReact",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AddRecipe",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"data\": \"This is your post method data\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/add-recipe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"add-recipe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EditRecipe",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"data\": \"This is your put method data\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/edit-recipe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"edit-recipe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetRecipe",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"data\": \"This is your get method data\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/get-recipe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"get-recipe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteRecipe",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"data\": \"This is your delete method data\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/delete-recipe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"delete-recipe"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "8d86e8ee-e389-43ec-ba35-662ec347fe88",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "36ba3f1c-8123-48ef-9fb6-5fce89879784",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "9b41e3fb-4bcb-4b71-a32a-85d5cca34cc3",
+			"key": "url",
+			"value": "http://localhost:3000/",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
