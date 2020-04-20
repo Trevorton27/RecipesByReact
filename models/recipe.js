@@ -37,6 +37,7 @@ const recipeSchema = new Schema({
    directions: [
       {
          step: String,
+         description: String,
       },
    ],
 });
