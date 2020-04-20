@@ -108,7 +108,6 @@ const RecipeForm = () => {
          .catch((err) => {
             console.log(err);
          });
-      event.preventDefault();
    };
 
    const ingredientInputs = numOfIngredients.map((ingredient, key) => {
@@ -154,11 +153,11 @@ const RecipeForm = () => {
             <Row className='my-1'>
                <Col xs={2}>
                   <Form.Control
-                     type='number'
-                     placeholder='Step #'
-                     min='1'
+                     type='text'
                      id={'step ' + (key + 1)}
+                     value={'Step ' + (key + 1)}
                      onChange={handleStepNum}
+                     disabled='true'
                   />
                </Col>
                <Col xs={10}>
@@ -177,7 +176,7 @@ const RecipeForm = () => {
 
    return (
       <Container className='mt-5'>
-         <Form onSubmit={handleFormSubmit}>
+         <Form onSubmit={handleFormSubmit} action='/'>
             <Form.Group controlId='formBasicEmail'>
                <Form.Label>Recipe Title</Form.Label>
                <Form.Control
