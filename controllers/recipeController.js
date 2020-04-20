@@ -6,9 +6,11 @@ exports.addRecipe = (req, res, next) => {
    const ingredients = req.body.ingredients;
    const servings = req.body.servings;
    const directions = req.body.directions;
+   const image = req.body.image;
 
    const recipe = new Recipe({
       title: title,
+      image: image,
       description: description,
       ingredients: ingredients,
       servings: servings,
@@ -17,11 +19,11 @@ exports.addRecipe = (req, res, next) => {
 
    recipe
       .save()
-      .then(recipe => {
+      .then((recipe) => {
          console.log(recipe);
          res.status(201).json(recipe);
       })
-      .catch(err => {
+      .catch((err) => {
          console.log(err);
          res.status(500).send('Error: Recipe Not Added!');
       });
@@ -31,11 +33,11 @@ exports.getRecipe = (req, res, next) => {
    const title = req.body.title;
 
    Recipe.findOne({ title: title })
-      .then(recipe => {
+      .then((recipe) => {
          console.log(recipe);
          res.status(200).json(recipe);
       })
-      .catch(err => {
+      .catch((err) => {
          console.log(err);
          res.status(404).send('Error: Could not find Recipe');
       });
@@ -43,10 +45,10 @@ exports.getRecipe = (req, res, next) => {
 
 exports.getAllRecipes = (req, res, next) => {
    Recipe.find()
-      .then(recipes => {
+      .then((recipes) => {
          res.status(200).json(recipes);
       })
-      .catch(err => {
+      .catch((err) => {
          console.log(err);
          res.status(500).send('Error: Could not retrieve recipes.');
       });
@@ -56,17 +58,19 @@ exports.editRecipe = (req, res, next) => {
    const title = req.body.title;
    const newDescription = req.body.newDescription;
    const newTitle = req.body.newTitle;
+   const newImage = req.body.newImage;
 
    Recipe.findOne({ title: title })
-      .then(recipe => {
+      .then((recipe) => {
          recipe.title = newTitle;
          recipe.description = newDescription;
+         recipe.image = newImage;
          return recipe.save();
       })
-      .then(updateRecipe => {
+      .then((updateRecipe) => {
          res.status(200).json(updateRecipe);
       })
-      .catch(err => {
+      .catch((err) => {
          console.log(err);
          res.status(500).send('Error: Could not edit recipe');
       });
@@ -76,13 +80,13 @@ exports.deleteRecipe = (req, res, next) => {
    const title = req.body.title;
 
    Recipe.findOne({ title: title })
-      .then(recipe => {
+      .then((recipe) => {
          return recipe.deleteOne();
       })
-      .then(result => {
+      .then((result) => {
          res.status(200).json('Recipe Deleted!');
       })
-      .catch(err => {
+      .catch((err) => {
          console.log(err);
          res.status(500).send('Error: Could not delete Recipe');
       });
