@@ -7,7 +7,7 @@ const recipeRoutes = require('./routes/recipeRoutes');
 
 const app = express();
 const MONGODB_URI =
-   'mongodb+srv://sdmm_user:iRqUGgKyAmi6Yg61@cluster0-wlioe.mongodb.net/RecipesByReact?retryWrites=true&w=majority';
+   'mongodb+srv://sdmm_user:@cluster0-wlioe.mongodb.net/RecipesByReact?retryWrites=true&w=majority';
 
 app.use('/', express.static(path.join(__dirname, 'client/build')));
 
