@@ -3,7 +3,7 @@ import { Navbar, Nav, Button, Form, FormControl } from 'react-bootstrap';
 
 const Navigation = () => {
    return (
-      <Navbar bg='primary' variant='dark' sticky='top'>
+      <Navbar bg='primary' variant='dark' stick='top'>
          <Navbar.Brand href='/'>RecipesByReact</Navbar.Brand>
          <Nav className='mr-auto'>
             <Nav.Link href='/'>Home</Nav.Link>
